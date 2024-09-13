@@ -1,14 +1,35 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/products/", () => "Hello World!");
-app.MapGet("/products/{id}", () => "Hello World!");
-app.MapGet("/products/{id}/categories", () => "Hello World!");
-app.MapGet("/products/{id}/categories/{cid}/sub-categories", () => "Hello World!");
-
-
-app.MapPost("/", () => "Hello World!");
-app.MapPut("/", () => "Hello World!");
-app.MapDelete("/", () => "Hello World!");
+app.MapPost("/v2/transactions", (Request request, Handler handler) =>
+{
+    return handler.Handle(request);
+})
+    .WithName("Transactions: Create")
+    .WithSummary("Cria uma nova transação")
+    .Produces<Response>();
 
 app.Run();
+public class Request
+{
+    public string Title { get; set; } = string.Empty;
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public int Type { get; set; } 
+    public decimal Amount { get; set; }
+    public long CategoryId { get; set; }
+    public string UserId { get; set; } = string.Empty;
+}
+
+public class Response
+{
+    public string Title { get; set; }
+    public int Id { get; set; }
+}
+
+public class Handler
+{
+    public Response Handle(Request request)
+    {
+        return new Response { Title = request.Title, Id = 4 };
+    }
+};
