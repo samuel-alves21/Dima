@@ -1,4 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen((x) =>
+{
+    x.CustomSchemaIds((n) => n.FullName);
+}) ;
+
 var app = builder.Build();
 
 app.MapPost("/v2/transactions", (Request request, Handler handler) =>
