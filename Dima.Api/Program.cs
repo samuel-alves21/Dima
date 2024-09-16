@@ -5,14 +5,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen((x) =>
 {
     x.CustomSchemaIds((n) => n.FullName);
-}) ;
+});
+
+builder.Services.AddTransient<Handler>();
 
 var app = builder.Build();
+
+app.UseSwaggerUI();
+app.UseSwagger();
 
 app.MapPost("/v2/transactions", (Request request, Handler handler) =>
 {
     return handler.Handle(request);
-})
+})  
     .WithName("Transactions: Create")
     .WithSummary("Cria uma nova transação")
     .Produces<Response>();
