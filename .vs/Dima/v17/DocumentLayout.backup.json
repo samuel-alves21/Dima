@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\samue\\source\\repos\\Dima\\",
+  "WorkspaceRootPath": "C:\\Users\\samue\\OneDrive\\Documentos\\github\\Dima\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{50ECC374-0A04-4E95-A25D-0BA0C2DFE554}|Dima.Api\\Dima.Api.csproj|c:\\users\\samue\\source\\repos\\dima\\dima.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{50ECC374-0A04-4E95-A25D-0BA0C2DFE554}|Dima.Api\\Dima.Api.csproj|c:\\users\\samue\\onedrive\\documentos\\github\\dima\\dima.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{50ECC374-0A04-4E95-A25D-0BA0C2DFE554}|Dima.Api\\Dima.Api.csproj|solutionrelative:dima.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50ECC374-0A04-4E95-A25D-0BA0C2DFE554}|Dima.Api\\Dima.Api.csproj|c:\\users\\samue\\onedrive\\documentos\\github\\dima\\dima.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50ECC374-0A04-4E95-A25D-0BA0C2DFE554}|Dima.Api\\Dima.Api.csproj|solutionrelative:dima.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,24 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\Documentos\\github\\Dima\\Dima.Api\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Dima.Api\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\samue\\OneDrive\\Documentos\\github\\Dima\\Dima.Api\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Dima.Api\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T22:17:13.526Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\samue\\source\\repos\\Dima\\Dima.Api\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\Documentos\\github\\Dima\\Dima.Api\\Program.cs",
               "RelativeDocumentMoniker": "Dima.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\samue\\source\\repos\\Dima\\Dima.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\samue\\OneDrive\\Documentos\\github\\Dima\\Dima.Api\\Program.cs",
               "RelativeToolTip": "Dima.Api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAACsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T16:30:20.521Z",
+              "WhenOpened": "2024-09-17T22:13:26.739Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }

@@ -22,7 +22,13 @@ public class CategoryMapping : IEntityTypeConfiguration<Category>
 
         builder.Property(x => x.Description)
             .HasColumnType("NVARCHAR")
-            .HasMaxLength(80)
+            .HasMaxLength(255)
             .IsRequired(false);
+
+        builder.Property(x => x.UserId)
+        .HasColumnType("VARCHAR")
+        .HasMaxLength(160)
+        .IsRequired(false);
     }
+
 }

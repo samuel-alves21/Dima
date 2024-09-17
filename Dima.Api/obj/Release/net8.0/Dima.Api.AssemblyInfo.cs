@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("7b07da48-1ede-4632-9a60-1f8ed22cc30b")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dima.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2dd02f2f889ccea7a0c0ace2c794d9bf5ec6e7f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eade496e44245ad260fc0852088497c1bcf21bdf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dima.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dima.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
