@@ -8,7 +8,7 @@ namespace Dima.Api.Handlers;
 
 public class CategoryHandler(AppDbContext context) : ICategoryHandler
 {
-    public async Task<Response<Category>> CreateAsync(CreateCategoryRequest request)
+    public async Task<Response<Category?>> CreateAsync(CreateCategoryRequest request)
     {
         try
         {
@@ -22,7 +22,7 @@ public class CategoryHandler(AppDbContext context) : ICategoryHandler
             await context.Categories.AddAsync(category);
             await context.SaveChangesAsync();
 
-            return new Response<Category?>(category, 201, "categoria criada com sucesso");
+            return new Response<Category>(category, 201, "categoria criada com sucesso");
         }
         catch 
         {
