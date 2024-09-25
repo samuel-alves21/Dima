@@ -4,6 +4,8 @@ namespace Dima.Core.Requests;
 
 public class UpdateCategoryRequest : Request
 {
+    public long Id { get; set; }
+
     [Required(ErrorMessage = "Titúlo inválido")]
     [MaxLength(80, ErrorMessage = "O título não pode ter mais de 80 caracteres")]
     [MinLength(3, ErrorMessage = "O título deve ter pelo menos 3 caracteres")]

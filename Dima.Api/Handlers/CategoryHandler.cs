@@ -2,6 +2,7 @@ using Dima.Api.Data;
 using Dima.Core.Models;
 using Dima.Core.Requests;
 using Dima.Core.Responses;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dima.Api.Handlers;
 
@@ -21,31 +22,47 @@ public class CategoryHandler(AppDbContext context) : ICategoryHandler
             await context.Categories.AddAsync(category);
             await context.SaveChangesAsync();
 
-            return new Response<Category>(category);
+            return new Response<Category?>(category, 201, "categoria criada com sucesso");
         }
-        catch (Exception ex)
+        catch 
         {
-            Console.WriteLine(ex.ToString());
-            throw new Exception("falha ao criar a categoria");
+            return new Response<Category?>(null, 500, "Não foi possível criar a categoria");
         }
     }
 
-    public Task<Response<Category>> CreateAsync(UpdateCategoryRequest request)
+    public async Task<Response<Category>> UpdateAsync(UpdateCategoryRequest request)
+    {
+        try
+        {
+            var category = await context.Categories.FirstOrDefaultAsync(x => x.Id == request.Id && x.UserId == request.UserId);
+
+            if (category is null) return new Response<Category>(null, 404, "Categoria não encontarda");
+
+            category.Title = request.Title;
+            category.Description = request.Description;
+
+            context.Categories.Update(category);
+            await context.SaveChangesAsync();
+
+            return new Response<Category>(category, 200, "categoria atualizada com sucesso");
+        } 
+        catch
+        {
+            return new Response<Category>(null, 500, "Não foi possível alterar a categoria");
+        }
+    }
+
+    public async Task<Response<Category>> DeleteAsync(DeleteCategoryRequest request)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Response<Category>> CreateAsync(DeleteCategoryRequest request)
+    public async Task<Response<Category>> GetByIdAsync(GetCategoryByIdRequest request)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Response<Category>> CreateAsync(GetCategoryByIdRequest request)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Response<List<Category>>> CreateAsync(GetAllCategoriesRequest request)
+    public async Task<Response<List<Category>>> GetAllAsync(GetAllCategoriesRequest request)
     {
         throw new NotImplementedException();
     }

@@ -1,28 +1,28 @@
 [
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_1",
-    "RelativePath": "v2/transactions",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_2",
+    "RelativePath": "v2/categories",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Request",
+        "Type": "Dima.Core.Requests.CreateCategoryRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "Response",
+        "Type": "Dima.Core.Responses.Response\u00601[[Dima.Core.Models.Category, Dima.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "application/json"
         ],
         "StatusCode": 200
       }
     ],
-    "EndpointName": "Transactions: Create",
-    "Summary": "Cria uma nova transa\u00E7\u00E3o"
+    "EndpointName": "Categories: Create",
+    "Summary": "Cria uma nova categoria"
   }
 ]
