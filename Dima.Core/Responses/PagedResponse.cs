@@ -11,10 +11,9 @@ public class PagedResponse<TData> : Response<TData>
         CurrentPage = currentPage;
         PageSize = pageSize;
         TotalCount = totalCount;
-
     }
 
-    public PagedResponse(TData? data, int code = 200, string message = null) : base(data)
+    public PagedResponse(TData? data, int code = 200, string message = null) : base(data, code, message)
     {
         
     }
@@ -23,5 +22,4 @@ public class PagedResponse<TData> : Response<TData>
     public int TotalPages => (int)Math.Ceiling((double)TotalCount / PageSize);
     public int PageSize { get; set; } = Configuration.DefaultPageSize;
     public int TotalCount { get; set; }
-
 }

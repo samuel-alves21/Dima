@@ -32,26 +32,58 @@ app.MapPost("/v2/categories", async (CreateCategoryRequest request, ICategoryHan
      await handler.CreateAsync(request))
         .WithName("Categories: Create")
         .WithSummary("Cria uma nova categoria")
-        .Produces<Response<Category>>();
+        .Produces<Response<Category?>>();
 
-app.MapPut("/v2/categories/{id}", async ([FromRoute]long id, [FromBody]UpdateCategoryRequest request, [FromServices]ICategoryHandler handler) => 
+app.MapPut("/v2/categories/{id}", async ([FromRoute]long id, [FromBody] UpdateCategoryRequest request, [FromServices] ICategoryHandler handler) => 
 {
     request.Id = id;
-    await handler.UpdateAsync(request);
+    return await handler.UpdateAsync(request);
 
 })
     .WithName("Categories: Update")
     .WithSummary("Atualiza uma categoria")
-    .Produces<Response<Category>>();
+    .Produces<Response<Category?>>();
 
 
-app.MapDelete("/v2/categories/{id}", async ([FromRoute] long id, [FromBody] DeleteCategoryRequest request, [FromServices]ICategoryHandler handler) =>
+app.MapDelete("/v2/categories/{id}", async ([FromRoute] long id, [FromServices] ICategoryHandler handler) =>
 {
-    request.Id = id;
-    await handler.DeleteAsync(request);
+    var request = new DeleteCategoryRequest()
+    {
+        Id = id,
+        UserId = "samuel@samuel"
+    };
+
+    return await handler.DeleteAsync(request);
 })
     .WithName("Categories: Delete")
     .WithSummary("Exclui uma categoria")
-    .Produces<Response<Category>>();
+    .Produces<Response<Category?>>();
+
+app.MapGet("/v2/categories/{id}", async ([FromRoute] long id, [FromServices] ICategoryHandler handler) =>
+{
+    var request = new GetCategoryByIdRequest()
+    {
+        Id = id,
+        UserId = "samuel@samuel"
+    };
+
+    return await handler.GetByIdAsync(request);
+})
+    .WithName("Categories: GetById")
+    .WithSummary("Retorna uma categoria pelo Id")
+    .Produces<Response<Category?>>();
+
+app.MapGet("/v2/categories/", async ([FromServices] ICategoryHandler handler) =>
+{
+    var request = new GetAllCategoriesRequest()
+    {
+        UserId = "samuel@samuel"
+    };
+
+    return await handler.GetAllAsync(request);
+})
+    .WithName("Categories: GetAll")
+    .WithSummary("Retorna todas as categorias")
+    .Produces<PagedResponse<List<Category>?>>();
 
 app.Run();  
