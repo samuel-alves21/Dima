@@ -25,7 +25,7 @@ public class CategoryHandler(AppDbContext context) : ICategoryHandler
 
             return new Response<Category?>(category, 201, "categoria criada com sucesso");
         }
-        catch 
+        catch
         {
             return new Response<Category?>(null, 500, "Não foi possível criar a categoria");
         }
@@ -46,7 +46,7 @@ public class CategoryHandler(AppDbContext context) : ICategoryHandler
             await context.SaveChangesAsync();
 
             return new Response<Category?>(category, 200, "categoria atualizada com sucesso");
-        } 
+        }
         catch
         {
             return new Response<Category?>(null, 500, "Não foi possível alterar a categoria");
@@ -54,7 +54,7 @@ public class CategoryHandler(AppDbContext context) : ICategoryHandler
     }
 
     public async Task<Response<Category?>> DeleteAsync(DeleteCategoryRequest request)
-    { 
+    {
         try
         {
             var category = await context.Categories.FirstOrDefaultAsync(x => x.Id == request.Id && x.UserId == request.UserId);

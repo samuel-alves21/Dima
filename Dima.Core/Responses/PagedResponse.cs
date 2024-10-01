@@ -13,7 +13,7 @@ public class PagedResponse<TData> : Response<TData>
         TotalCount = totalCount;
     }
 
-    public PagedResponse(TData? data, int code = 200, string message = null) : base(data, code, message)
+    public PagedResponse(TData? data, int code = 200, string? message = null) : base(data, code, message)
     {
         
     }
