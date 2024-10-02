@@ -2,6 +2,7 @@ using Dima.Core.Models;
 using Dima.Core.Requests;
 using Dima.Core.Responses;
 
+namespace Dima.Core.Handlers;
 public interface ICategoryHandler
 {
 	Task<Response<Category?>> CreateAsync (CreateCategoryRequest request);

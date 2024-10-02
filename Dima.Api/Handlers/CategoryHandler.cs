@@ -1,5 +1,6 @@
 using Dima.Api.Data;
 using Dima.Core;
+using Dima.Core.Handlers;
 using Dima.Core.Models;
 using Dima.Core.Requests;
 using Dima.Core.Responses;

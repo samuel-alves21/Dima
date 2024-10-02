@@ -1,10 +1,6 @@
 using Dima.Api.Data;
 using Dima.Api.Endpoints;
 using Dima.Api.Handlers;
-using Dima.Core.Models;
-using Dima.Core.Requests;
-using Dima.Core.Responses;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +18,7 @@ builder.Services.AddSwaggerGen((x) =>
     x.CustomSchemaIds((n) => n.FullName);
 });
 
-builder.Services.AddTransient<ICategoryHandler, CategoryHandler>();
+builder.Services.AddTransient<CategoryHandler>();
 
 var app = builder.Build();
 
