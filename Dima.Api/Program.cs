@@ -8,7 +8,8 @@ using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
+var connectionString = builder.Configuration
+    .GetConnectionString("DefaultConnection") ?? "";
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 { 
@@ -21,11 +22,15 @@ builder.Services.AddSwaggerGen((x) =>
     x.CustomSchemaIds((n) => n.FullName);
 });
 
-builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme).AddIdentityCookies();
+builder.Services
+    .AddAuthentication(IdentityConstants.ApplicationScheme)
+    .AddIdentityCookies();
+
 builder.Services.AddIdentityCore<User>()
     .AddRoles<IdentityRole<long>>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddApiEndpoints();
+
 builder.Services.AddAuthorization();
 
 builder.Services.AddTransient<CategoryHandler>();
@@ -40,10 +45,12 @@ app.UseSwaggerUI();
 app.UseSwagger();
 
 app.MapGet("/", () => new { Message = "Ok" }); 
+
 app.MapEndpoints();
+
 app.MapGroup("v1/identity")
     .WithTags("Identity")
-    .MapIdentityApi<User>();
+    .MapIdentityApi<User>();    
 
 app.MapGroup("v1/identity") 
     .WithTags("Identity")
@@ -58,7 +65,7 @@ app.MapGroup("v1/identity")
 app.MapGroup("v1/identity")
     .WithTags("Identity")
     .MapGet("/roles", (ClaimsPrincipal user) =>
-    {
+    {   
         if (user == null || !user.Identity.IsAuthenticated) return Results.Unauthorized();
 
         var identity = (ClaimsIdentity)user.Identity;

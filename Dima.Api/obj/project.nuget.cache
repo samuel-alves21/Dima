@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P+3ko8eSuQs=",
+  "dgSpecHash": "jisV0/DjixE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\samue\\Documents\\Git-Projects\\Dima\\Dima.Api\\Dima.Api.csproj",
+  "projectFilePath": "C:\\Users\\samue\\OneDrive\\Documentos\\github\\Dima\\Dima.Api\\Dima.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\samue\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\samue\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
