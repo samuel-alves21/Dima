@@ -12,6 +12,8 @@ public static class BuilderExtensions
     public static void AddConfiguration(this WebApplicationBuilder builder)
     {
         Configuration.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? "";
+        Configuration.FrontendUrl = builder.Configuration.GetValue<string>("FrontendUrl") ?? "";
+        Configuration.BackendUrl = builder.Configuration.GetValue<string>("BackendUrl") ?? "";
     }
 
     public static void AddDocumentation(this WebApplicationBuilder builder)
@@ -53,6 +55,20 @@ public static class BuilderExtensions
 
     public static void AddCrossOrigin(this WebApplicationBuilder builder)
     {
+        builder.Services.AddCors((options) =>
+        {
+            options.AddPolicy(ApiConfiguration.CorsPolicyName, (policy) =>
+            {
+                policy
+                .WithOrigins([
+                    Configuration.FrontendUrl,
+                    Configuration.BackendUrl
+                    ])
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials();
+            });
+        });
     }
 }
 
